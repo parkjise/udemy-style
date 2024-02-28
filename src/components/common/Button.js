@@ -3,7 +3,7 @@ import styled,{css} from "styled-components";
 
 const Button = styled.button`
   color:white;
-  background:${p => p.secondary ? 'pink' : 'black'} ;
+  background:${p => p.secondary ? p.theme.secondaryColor : p.theme.primaryColor} ;
   font-weight:bold;
   padding:8px;
   border-radius:4px;

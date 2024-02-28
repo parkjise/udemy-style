@@ -1,7 +1,7 @@
 import React from 'react';
 import 'assets/css/themes.css';
 import {Button} from 'components/common';
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle,ThemeProvider } from 'styled-components';
 import {
   BrowserRouter as Router,
   Routes,
@@ -26,25 +26,30 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Protest Riot', sans-serif;
   }
 `
+const theme = {
+  primaryColor:'#f8049c',
+  secondaryColor:'#fdd54f'
+};
+
 function App() {
   return (
-    <>
-    <GlobalStyle/>
-    <Router>
-      <Routes>
-        <Route path="login" element={ <Login /> } />
-        <Route path="/" element={ <Home /> } />
-      </Routes>
-    </Router>
-      <h1 className='tit'>App112323144</h1>
-      <div>
-        <i className="ri-arrow-up-circle-fill test11"></i>
-      </div>
-      <Button>Primary Button</Button>
-      <Button secondary>Secondary Button</Button>
-      <Button disabled>Disabled Button</Button>
-      <Button large>Large Button</Button>
-    </>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle/>
+      <Router>
+        <Routes>
+          <Route path="login" element={ <Login /> } />
+          <Route path="/" element={ <Home /> } />
+        </Routes>
+      </Router>
+        <h1 className='tit'>App112323144</h1>
+        <div>
+          <i className="ri-arrow-up-circle-fill test11"></i>
+        </div>
+        <Button>Primary Button</Button>
+        <Button secondary>Secondary Button</Button>
+        <Button disabled>Disabled Button</Button>
+        <Button large>Large Button</Button>
+    </ThemeProvider>
   );
 }
 
