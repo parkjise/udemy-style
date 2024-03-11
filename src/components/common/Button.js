@@ -1,6 +1,20 @@
 import styled,{css} from "styled-components";
 
-
+const largeStyles = ({large}) => {
+  if(large){  
+    return css `
+      padding:10px;
+      border-radius: 5px;
+      font-size:1.6rem;
+    `;
+  }else{
+    return css `
+      padding:8px;
+      border-radius: 2px;
+      font-size:1rem;
+    `;
+  }
+}
 const Button = styled.button`
   color:white;
   background:${p => p.secondary ? p.theme.secondaryColor : p.theme.primaryColor} ;
@@ -12,15 +26,7 @@ const Button = styled.button`
   border:none;
   width:100%;
   display:block;
-  ${p => p.large ? css`
-    padding:10px;
-    border-radius: 5px;
-    font-size:1.6rem;
-    ` : css`
-    padding:8px;
-    border-radius: 2px;
-    font-size:1rem;
-    ` }
+  ${largeStyles}
   &:disabled{
     background:#eee;
     color:#666;
